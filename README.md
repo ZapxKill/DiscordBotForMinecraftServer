@@ -1,4 +1,4 @@
-#　Minecraft server management bot
+# Minecraft server management bot
 **Functions**
 - Get Minecraft server Status
 - Start/Stop Minecraft server
