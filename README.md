@@ -4,5 +4,8 @@
 - Start/Stop Minecraft server
 - Whitelist management
 # How to use
-- Set token in Settings.py
+- Set token/serverIP/serverPort in Settings.py
+- Name minecaft server run bat as start.bat
 - Run Main.py
+# Other
+- Languange: zh_TW
