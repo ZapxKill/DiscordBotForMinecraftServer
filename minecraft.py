@@ -151,7 +151,7 @@ class minecraft(commands.Cog):
     )
     async def set(self, ctx, id: str):
         await ctx.defer()
-        whitelistIDs = json.load(open("./botSource/whitelist.json", "r"))
+        whitelistIDs = json.load(open("whitelist.json", "r"))
         try:
             server = await JavaServer.async_lookup(f"{ip}:{port}")
             status = await server.async_status()
@@ -173,7 +173,7 @@ class minecraft(commands.Cog):
                 embed.set_author(name=ctx.author)
                 embed.set_thumbnail(url=ctx.author.avatar.url)
                 embed.add_field(name="Minecraft ID", value=id)
-                json.dump(whitelistIDs, open("./botSource/whitelist.json", "w"))
+                json.dump(whitelistIDs, open("whitelist.json", "w"))
                 await ctx.send_followup(embed=embed)
                 return
             whitelistIDs[str(ctx.author.id)] = id
@@ -187,7 +187,7 @@ class minecraft(commands.Cog):
             embed.set_author(name=ctx.author)
             embed.set_thumbnail(url=ctx.author.avatar.url)
             embed.add_field(name="Minecraft ID", value=id)
-            json.dump(whitelistIDs, open("./botSource/whitelist.json", "w"))
+            json.dump(whitelistIDs, open("whitelist.json", "w"))
             await ctx.send_followup(embed=embed)
         except:
             embed = discord.Embed(
@@ -203,7 +203,7 @@ class minecraft(commands.Cog):
     )
     async def show(self, ctx):
         await ctx.defer()
-        whitelistIDs = json.load(open("./botSource/whitelist.json", "r"))
+        whitelistIDs = json.load(open("whitelist.json", "r"))
         discordIDs = list(whitelistIDs.keys())
         minecraftIDs = list(whitelistIDs.values())
         embed = discord.Embed(
