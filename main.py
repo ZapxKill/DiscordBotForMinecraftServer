@@ -38,9 +38,9 @@ async def help(ctx):
     await ctx.send_followup(embed=embed)
 
 
-for filename in os.listdir("./botSource"):
-    if filename.endswith(".py"):
-        bot.load_extension("botSource." + filename[:-3])
+for filename in os.listdir("./"):
+    if filename.endswith(".py") and filename != "main.py":
+        bot.load_extension(filename[:-3])
         print(f"擴充: {filename[:-3]} 已加載")
 
 loop = asyncio.get_event_loop()
